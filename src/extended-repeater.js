@@ -16,34 +16,34 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function repeater(str, options) {
-  // options = {
-  //   repeatTimes: options.repeatTimes ?? 1,
-  //   additionRepeatTimes: options.additionRepeatTimes ?? 0,
-  //   separator: options.separator ?? '+',
-  //   addition: options.addition,
-  //   additionSeparator: options.additionSeparator ?? '|',
-  // };
+  options = {
+    repeatTimes: options.repeatTimes || 1,
+    additionRepeatTimes: options.additionRepeatTimes || 0,
+    separator: options.separator || '+',
+    addition: options.addition,
+    additionSeparator: options.additionSeparator || '|',
+  };
 
-  // if (options.addition && !options.additionRepeatTimes) {
-  //   options.additionRepeatTimes = 1;
-  // }
+  if (options.addition && !options.additionRepeatTimes) {
+    options.additionRepeatTimes = 1;
+  }
 
-  // let result = [];
+  let result = [];
   
-  // for (let i = 0; i < options.repeatTimes; i++) {
-  //   const arr = [];
-  //   let preResult = [];
+  for (let i = 0; i < options.repeatTimes; i++) {
+    const arr = [];
+    let preResult = [];
   
-  //   preResult.push(String(str));
+    preResult.push(String(str));
 
-  //   for (let j = 0; j < options.additionRepeatTimes; j++) {
-  //     arr.push(String(options.addition));
-  //   }
+    for (let j = 0; j < options.additionRepeatTimes; j++) {
+      arr.push(String(options.addition));
+    }
 
-  //   preResult.push(arr.join(options.additionSeparator));
+    preResult.push(arr.join(options.additionSeparator));
 
-  //   result.push(preResult.join(''));
-  // }
+    result.push(preResult.join(''));
+  }
 
-  // return result.join(options.separator);
+  return result.join(options.separator);
 }
